@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="date" class="java.util.Date"></bean>
+    <bean id="teacher1" class="org.zktr.Teacher">
+        <constructor-arg name="tid" value="01"></constructor-arg>
+        <constructor-arg name="name" value="李元霸"></constructor-arg>
+    </bean>
+    <bean id="teacher2" class="org.zktr.Teacher">
+        <constructor-arg name="tid" value="02"></constructor-arg>
+        <constructor-arg name="name" value="孔子"></constructor-arg>
+    </bean>
+    <bean id="teacher3" class="org.zktr.Teacher">
+        <constructor-arg name="tid" value="03"></constructor-arg>
+        <constructor-arg name="name" value="吴道子"></constructor-arg>
+    </bean>
+    <bean id="rank" class="org.zktr.Rank">
+        <property name="rid" value="137"></property>
+        <property name="rname" value="弘毅"></property>
+        <property name="list">
+            <list>
+                <ref bean="stu1"></ref>
+                <ref bean="stu2"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="stu1" class="org.zktr.Student">
+        <constructor-arg name="id" value="001"></constructor-arg>
+        <constructor-arg name="name" value="小米"></constructor-arg>
+        <constructor-arg name="phone" value="123456"></constructor-arg>
+        <constructor-arg name="date" ref="date"></constructor-arg>
+        <property name="love">
+            <map>
+                <entry key="01" value="体育"></entry>
+                <entry key="03" value="美术"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="stu2" class="org.zktr.Student">
+        <constructor-arg name="id" value="002"></constructor-arg>
+        <constructor-arg name="name" value="小名"></constructor-arg>
+        <constructor-arg name="phone" value="123456"></constructor-arg>
+        <constructor-arg name="date" ref="date"></constructor-arg>
+        <property name="love">
+            <map>
+                <entry key="02" value="礼仪"></entry>
+                <entry key="03" value="美术"></entry>
+            </map>
+        </property>
+    </bean>
+</beans>
